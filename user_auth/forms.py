@@ -9,3 +9,11 @@ class UserForm(forms.Form):
     )
     email = forms.EmailField(required=True, max_length=100)
     password = forms.CharField(required=True, max_length=256)
+
+
+class LoginForm(forms.Form):
+    email = forms.CharField(
+        required=True,
+        label='User name or email',
+    )
+    password = forms.CharField(required=True)

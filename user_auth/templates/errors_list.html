@@ -1,5 +1,7 @@
+{% load static %}
+
 <div style="height: .5rem;">
     {% for error in field.errors %}
-    <span style="color: red; font-size: smaller;">{{ error }}</span>
+    <span class="error-message">{{ error }}</span>
     {% endfor %}
 </div>

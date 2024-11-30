@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 80vh;">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<div class="center-container">
     <h1>Sign up</h1>
-    <form method="POST" novalidate >
-        <div style="display: grid; gap: 1.5rem;">
-            {% csrf_token %}
+    <form method="POST" novalidate onsubmit="this.querySelector('button').disabled = true;">
+        {% csrf_token %}
+        <div class="sign-form">
             {% for field in form %}
-                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="form-group">
                     <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
                     {{ field }}
                     {% include 'errors_list.html' %}
                 </div>
             {% endfor %}
-            <button style="height: 30px;">Register</button>
+            <button type="submit" style="height: 30px;">Register</button>
         </div>
     </form>
 </div>
